@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mod14v_Logsettings>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mod14v_Logsettings>
+    </modules>
+</config>

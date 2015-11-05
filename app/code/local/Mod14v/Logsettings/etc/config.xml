@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mod14v_Logsettings>
+            <version>0.1.0</version>
+        </Mod14v_Logsettings>
+    </modules>
+    <global>
+        <models>
+            <mod14v_logsettings>
+                <class>Mod14v_Logsettings_Model</class>
+                <resourceModel>mod14v_logsettings_resource</resourceModel>
+            </mod14v_logsettings>
+            <mod14v_logsettings_resource>
+                <class>Mod14v_Logsettings_Model_Resource</class>
+                <entities>
+                    <change>
+                        <table>mod14vSettingsChange</table>
+                    </change>
+                </entities>
+            </mod14v_logsettings_resource>
+        </models>
+        <blocks>
+            <mod14v_logsettings>
+                <class>Mod14v_Logsettings_Block</class>
+            </mod14v_logsettings>
+        </blocks>
+        <helpers>
+            <mod14v_logsettings>
+                <class>Mod14v_Logsettings_Helper</class>
+            </mod14v_logsettings>
+        </helpers>
+        <resources>
+            <mod14v_logsettings_setup>
+                <setup>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                    <module>Mod14v_Logsettings</module>
+                </setup>
+            </mod14v_logsettings_setup>
+        </resources>
+        <events>
+            <!-- Observer zum Beobachten von Config-Data-Changes -->
+
+            <core_config_data_save_before>
+                <observers>
+                    <mod14v_logsettings_observer>
+                        <class>mod14v_logsettings/observer</class>
+                        <method>saveChange</method>
+                    </mod14v_logsettings_observer>
+                </observers>
+            </core_config_data_save_before>
+        </events>
+    </global>
+    <admin>
+        <!-- Controller Rewrite per Interception (Folie ab 129) -->
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <mod14v_logsettings before="Mage_Adminhtml">Mod14v_Logsettings_Adminhtml</mod14v_logsettings>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

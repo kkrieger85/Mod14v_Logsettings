@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <mod14v_logsettings_change>
+            <title>Mod14v</title>
+            <children>
+                <change_list>
+                    <title>Changes List</title>
+                    <action>adminhtml/mod14v_logsettings_changelist</action>
+                </change_list>
+            </children>
+        </mod14v_logsettings_change>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <mod14v_logsettings_changes translate="title">
+                        <title>Changes</title>
+                        <children>
+                            <changes_list translate="title">
+                                <title>Changes List</title>
+                            </changes_list>
+                        </children>
+                    </mod14v_logsettings_changes>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mod14v_logsettings_changes_section translate="title">
+                                        <title>Mod14v Changes Section</title>
+                                    </mod14v_logsettings_changes_section>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
